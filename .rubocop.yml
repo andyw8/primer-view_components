@@ -1,3 +1,8 @@
+inherit_from: .rubocop_todo.yml
+inherit_mode:
+  merge:
+    - Exclude
+
 inherit_gem:
   rubocop-github:
     - config/default.yml
@@ -85,3 +90,5 @@ Primer/DeprecatedLabelVariants:
 
 Primer/TestSelector:
   Enabled: true
+  Exclude:
+    - "test/components/alpha/stack_test.rb" # fails with an internal error
