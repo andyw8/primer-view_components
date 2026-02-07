@@ -33,6 +33,7 @@ jobs:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
 
   check-for-changeset:
+    if: github.repository == 'primer/view_components'
     name: Check for changeset
     runs-on: ubuntu-latest
     env:
