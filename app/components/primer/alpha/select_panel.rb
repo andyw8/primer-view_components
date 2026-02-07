@@ -457,7 +457,7 @@ module Primer
 
         @list = Primer::Alpha::SelectPanel::ItemList.new(
           **list_arguments,
-          form_arguments: @list_form_arguments, 
+          form_arguments: @list_form_arguments,
           id: "#{@panel_id}-list",
           select_variant: @select_variant,
           aria: {
@@ -539,7 +539,7 @@ module Primer
       end
 
       def required_form_arguments_given?
-        @input_name  && @form_builder
+        @input_name && @form_builder
       end
 
       def multi_select?

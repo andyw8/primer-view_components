@@ -273,7 +273,7 @@ module Primer
       <!-- p><img src=\"http://placekitten.com/g/1200/800/\"></!-->
 
       <pre><code>This is the final element on the page and there should be no margin below this.</code></pre>
-    ).html_safe # rubocop:disable Rails/OutputSafety
+    ).html_safe
 
       # @label Playground
       def playground

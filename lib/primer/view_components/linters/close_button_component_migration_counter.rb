@@ -37,7 +37,7 @@ module ERBLint
         ast = erb_ast(code)
 
         # We'll only autocorrect cases where the only content is an octicon.
-        if ast.method_name == :primer_octicon || ast.method_name == :octicon
+        if [:primer_octicon, :octicon].include?(ast.method_name)
           octicon_kwargs = ast.arguments[1]
           icon = icon(ast.arguments)
         elsif ast.method_name == :render && code.include?("Primer::Beta::Octicon")
@@ -112,7 +112,7 @@ module ERBLint
       end
 
       def icon(args)
-        return args.first.value.to_sym if args.first.type == :sym || args.first.type == :str
+        return args.first.value.to_sym if [:sym, :str].include?(args.first.type)
 
         args.last.pairs.find { |x| x.key.value == :icon }.value.value.to_sym
       end

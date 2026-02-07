@@ -24,6 +24,7 @@ module RuboCop
       # primer_octicon(condition > "icon" : "other-icon")
       class PrimerOcticon < RuboCop::Cop::Base
         extend AutoCorrector
+
         INVALID_MESSAGE = <<~STR
           Replace the octicon helper with primer_octicon. See https://primer.style/view-components/components/octicon for details.
         STR

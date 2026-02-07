@@ -6,6 +6,7 @@ module RuboCop
       # Lint & autocorrect Truncate components
       class TruncateComponent < RuboCop::Cop::Base
         extend AutoCorrector
+
         INVALID_MESSAGE = <<~STR
           `Primer::Truncate` is deprecated. Please use `Primer::Beta::Truncate` instead!
         STR

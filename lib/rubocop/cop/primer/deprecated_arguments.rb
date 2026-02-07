@@ -15,6 +15,7 @@ module RuboCop
       # Component.new(foo: :bar)
       class DeprecatedArguments < BaseCop
         extend AutoCorrector
+
         INVALID_MESSAGE = <<~STR
           Avoid using deprecated arguments: https://primer.style/view-components/deprecated.
         STR

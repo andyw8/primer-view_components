@@ -15,6 +15,7 @@ module RuboCop
       # ButtonComponent.new(size: :small)
       class DeprecatedButtonArguments < BaseCop
         extend AutoCorrector
+
         INVALID_MESSAGE = <<~STR
           `variant` is deprecated. Use `size` instead.
         STR

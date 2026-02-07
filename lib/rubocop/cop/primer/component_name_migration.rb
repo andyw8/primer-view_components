@@ -21,7 +21,7 @@ module RuboCop
           return unless node.method_name == :new && !node.receiver.nil? && ::Primer::Deprecations.deprecated?(node.receiver.const_name)
 
           message = ::Primer::Deprecations.deprecation_message(node.receiver.const_name)
-          
+
           add_offense(node.receiver, message: message) do |corrector|
             component_name = node.receiver.const_name
             next unless ::Primer::Deprecations.correctable?(component_name)

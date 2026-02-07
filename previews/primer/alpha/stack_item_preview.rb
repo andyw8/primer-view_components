@@ -33,7 +33,7 @@ module Primer
       private
 
       def control_values_for(normal, narrow, regular, wide)
-        [narrow, regular, wide].any? ? { narrow: narrow, regular: regular, wide: wide} : normal
+        [narrow, regular, wide].any? ? { narrow: narrow, regular: regular, wide: wide } : normal
       end
     end
   end

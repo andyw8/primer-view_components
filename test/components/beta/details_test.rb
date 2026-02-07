@@ -187,7 +187,7 @@ class PrimerBetaDetailsTest < Minitest::Test
 
     # Should not have aria-label attribute
     refute_selector("summary[aria-label]")
-    # Should not have data-aria-label attributes 
+    # Should not have data-aria-label attributes
     refute_selector("summary[data-aria-label-closed]")
     refute_selector("summary[data-aria-label-open]")
     # Should still have aria-expanded
@@ -206,7 +206,7 @@ class PrimerBetaDetailsTest < Minitest::Test
 
     # Should not have aria-label attribute
     refute_selector("summary[aria-label]")
-    # Should not have data-aria-label attributes 
+    # Should not have data-aria-label attributes
     refute_selector("summary[data-aria-label-closed]")
     refute_selector("summary[data-aria-label-open]")
     # Should still have aria-expanded

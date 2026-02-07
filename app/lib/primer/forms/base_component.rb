@@ -53,7 +53,7 @@ module Primer
       private
 
       def compile_and_render_template
-        self.class.compile! unless self.class.instance_methods(false).include?(:render_template)
+        self.class.compile! unless self.class.method_defined?(:render_template, false)
         render_template
       end
     end

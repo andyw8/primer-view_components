@@ -12,43 +12,49 @@ module Primer
         attr_reader :has_after_content, :__vcf_form_block, :__vcf_builder
         alias after_content? has_after_content
 
-        def form(&block)
-          @__vcf_form_block = block
+
+
+
+
+
+      end
+
+      def self.form(&block)
+        @__vcf_form_block = block
+      end
+
+      def self.new(builder, **options)
+        if builder && !builder.is_a?(Primer::Forms::Builder)
+          raise ArgumentError, "please pass an instance of Primer::Forms::Builder when "\
+            "constructing a form object (consider using the `primer_form_with` helper)"
         end
 
-        def new(builder, **options)
-          if builder && !builder.is_a?(Primer::Forms::Builder)
-            raise ArgumentError, "please pass an instance of Primer::Forms::Builder when "\
-              "constructing a form object (consider using the `primer_form_with` helper)"
-          end
+        allocate.tap do |form|
+          form.instance_variable_set(:@builder, builder)
+          form.send(:initialize, **options)
+        end
+      end
 
-          allocate.tap do |form|
-            form.instance_variable_set(:@builder, builder)
-            form.send(:initialize, **options)
-          end
+      def self.inherited(base)
+        base.renders_template "after_content.html.erb" do
+          base.instance_variable_set(:@has_after_content, true)
         end
 
-        def inherited(base)
-          base.renders_template "after_content.html.erb" do
-            base.instance_variable_set(:@has_after_content, true)
-          end
-
-          base.renders_templates "*_caption.html.erb" do |path|
-            base.fields_with_caption_templates << File.basename(path).chomp("_caption.html.erb").to_sym
-          end
+        base.renders_templates "*_caption.html.erb" do |path|
+          base.fields_with_caption_templates << File.basename(path).chomp("_caption.html.erb").to_sym
         end
+      end
 
-        def caption_template?(field_name)
-          fields_with_caption_templates.include?(sanitize_field_name_for_template_path(field_name))
-        end
+      def self.caption_template?(field_name)
+        fields_with_caption_templates.include?(sanitize_field_name_for_template_path(field_name))
+      end
 
-        def fields_with_caption_templates
-          @fields_with_caption_templates ||= []
-        end
+      def self.fields_with_caption_templates
+        @fields_with_caption_templates ||= []
+      end
 
-        def sanitize_field_name_for_template_path(field_name)
-          field_name.to_s.delete_suffix("?").to_sym
-        end
+      def self.sanitize_field_name_for_template_path(field_name)
+        field_name.to_s.delete_suffix("?").to_sym
       end
 
       def inputs

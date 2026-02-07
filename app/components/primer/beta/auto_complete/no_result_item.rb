@@ -1,4 +1,4 @@
-module Primer 
+module Primer
   module Beta
     class AutoComplete
       class NoResultItem < Item

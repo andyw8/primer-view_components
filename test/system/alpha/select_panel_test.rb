@@ -1356,7 +1356,7 @@ module Alpha
       visit_preview(:default)
 
       click_on_invoker_button
-      
+
       keyboard.type(:tab)
 
       evaluate_multiline_script(<<~JS)
@@ -1375,7 +1375,7 @@ module Alpha
 
       refute_selector "select-panel dialog[open]"
 
-      keyboard.type("a")  
+      keyboard.type("a")
 
       assert page.evaluate_script("window.bodyKeydownFired")
     end

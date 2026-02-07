@@ -36,7 +36,7 @@ module RuboCop
           return unless hash
 
           test_selector = hash.pairs.find do |pair|
-            pair.key.value == :"test-selector" || pair.key.value == "test-selector"
+            [:"test-selector", "test-selector"].include?(pair.key.value)
           end
           return unless test_selector
 

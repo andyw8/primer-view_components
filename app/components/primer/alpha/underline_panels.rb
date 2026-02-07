@@ -6,6 +6,7 @@ module Primer
     class UnderlinePanels < Primer::Component
       include Primer::TabbedComponentHelper
       include Primer::UnderlineNavHelper
+
       # Use to render a button and an associated panel slot. See the example below or refer to <%= link_to_component(Primer::Alpha::Navigation::Tab) %>.
       #
       # @param id [String] Unique ID of tab.

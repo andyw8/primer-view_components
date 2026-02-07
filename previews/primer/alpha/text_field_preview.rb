@@ -246,7 +246,7 @@ module Primer
       #
       # @!endgroup
 
-      # @!group Auto check 
+      # @!group Auto check
       #
       # @label Auto check request ok
       def with_auto_check_ok

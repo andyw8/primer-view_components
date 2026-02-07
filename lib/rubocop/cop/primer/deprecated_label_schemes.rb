@@ -15,6 +15,7 @@ module RuboCop
       # Primer::Beta::Label.new(scheme: :accent)
       class DeprecatedLabelSchemes < BaseCop
         extend AutoCorrector
+
         INVALID_MESSAGE = <<~STR
           Avoid using deprecated schemes: https://primer.style/view-components/deprecated#labelcomponent.
         STR
@@ -39,7 +40,7 @@ module RuboCop
           kwargs.pairs.each do |pair|
             # Skip if we're not dealing with a symbol
             next if pair.key.type != :sym
-            next unless pair.value.type == :sym || pair.value.type == :str
+            next unless [:sym, :str].include?(pair.value.type)
 
             value = pair.value.value.to_sym
 

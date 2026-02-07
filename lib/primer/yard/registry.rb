@@ -103,12 +103,13 @@ module Primer
         include Primer::ViewHelper
         include Primer::Yard::DocsHelper
 
-        def make
-          registry = ::YARD::RegistryStore.new
-          registry.load!(File.expand_path(File.join("..", "..", "..", ".yardoc"), __dir__))
+      end
 
-          new(registry)
-        end
+      def self.make
+        registry = ::YARD::RegistryStore.new
+        registry.load!(File.expand_path(File.join("..", "..", "..", ".yardoc"), __dir__))
+
+        new(registry)
       end
 
       attr_reader :yard_registry

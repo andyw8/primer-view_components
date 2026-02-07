@@ -91,7 +91,7 @@ class PrimerBetaAutoCompleteItemTest < Minitest::Test
   end
 
   def test_renders_no_results
-    render_inline(Primer::Beta::AutoComplete::NoResultItem.new(value: "", )) do |component|
+    render_inline(Primer::Beta::AutoComplete::NoResultItem.new(value: "",)) do |component|
       "No results"
     end
 

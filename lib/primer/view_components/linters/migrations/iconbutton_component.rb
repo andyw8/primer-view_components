@@ -6,6 +6,7 @@ module RuboCop
       # Lint and autocorrect deprecated IconButton
       class IconButtonComponent < RuboCop::Cop::Base
         extend AutoCorrector
+
         INVALID_MESSAGE = <<~STR
           `Primer::IconButton` is deprecated. Please use `Primer::Beta::IconButton` instead.
         STR

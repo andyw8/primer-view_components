@@ -30,7 +30,7 @@ module Primer
         # Prefer Zeitwerk-managed paths, falling back to ActiveSupport::Dependencies if Zeitwerk
         # is disabled or not in use (i.e. the case for older Rails versions).
         autoload_paths = if Rails.respond_to?(:autoloaders) && Rails.autoloaders.zeitwerk_enabled?
-          Rails.autoloaders.main.dirs
+                           Rails.autoloaders.main.dirs
         else
           ActiveSupport::Dependencies.autoload_paths
         end

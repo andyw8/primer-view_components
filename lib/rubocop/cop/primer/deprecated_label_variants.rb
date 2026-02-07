@@ -21,6 +21,7 @@ module RuboCop
       # Primer::Beta::Label.new(inline: true)
       class DeprecatedLabelVariants < BaseCop
         extend AutoCorrector
+
         def on_send(node)
           return unless label_node?(node)
           return unless node.arguments?
@@ -33,7 +34,7 @@ module RuboCop
           kwargs.pairs.each do |pair|
             # skip if we're not dealing with a symbol or string
             next if pair.key.type != :sym
-            next unless pair.value.type == :sym || pair.value.type == :str
+            next unless [:sym, :str].include?(pair.value.type)
             next if pair.key.value != :variant
 
             case pair.value.value
