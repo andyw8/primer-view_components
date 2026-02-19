@@ -5,13 +5,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "primer/view_components/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "primer_view_components"
+  spec.name          = "andyw8-primer_view_components"
   spec.version       = Primer::ViewComponents::VERSION::STRING
   spec.authors       = ["GitHub Open Source"]
   spec.email         = ["opensource+primer_view_components@github.com"]
 
   spec.summary       = "ViewComponents for the Primer Design System"
-  spec.homepage      = "https://github.com/primer/view_components"
+  spec.homepage      = "https://github.com/andyw8/prime_view_components"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 3.2.0")
 
